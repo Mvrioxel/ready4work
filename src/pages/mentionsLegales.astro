@@ -1,0 +1,103 @@
+---
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+---
+
+<Layout title="Mentions légales | Ready 4 Work">
+    <Header/>
+  <main class="legal-page">
+    <h1>Mentions légales</h1>
+
+    <section>
+      <h2>Éditeur du site</h2>
+      <p>
+        Le présent site est édité par : <strong>TODO Nom / Raison sociale</strong><br />
+        Statut juridique : TODO (auto-entrepreneur, SASU, etc.)<br />
+        SIRET : TODO<br />
+        Adresse : TODO<br />
+        Email : <a href="mailto:contact@TODO.fr">contact@TODO.fr</a><br />
+        Téléphone : TODO
+      </p>
+    </section>
+
+    <section>
+      <h2>Directeur de la publication</h2>
+      <p>TODO Nom Prénom</p>
+    </section>
+
+    <section>
+      <h2>Hébergement</h2>
+      <p>
+        Ce site est hébergé par :<br />
+        <strong>TODO Vercel Inc. / Netlify Inc.</strong><br />
+        Adresse : TODO (adresse de l'hébergeur, dispo sur leur site légal)<br />
+      </p>
+    </section>
+
+    <section>
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L'ensemble des contenus présents sur ce site (textes, images, logos, graphismes)
+        sont la propriété exclusive de Ready 4 Work, sauf mention contraire.
+        Toute reproduction, même partielle, est interdite sans autorisation préalable.
+      </p>
+    </section>
+
+    <section>
+      <h2>Données personnelles</h2>
+      <p>
+        Les informations recueillies via le formulaire de contact sont utilisées
+        uniquement pour répondre à votre demande. Conformément au RGPD, vous disposez
+        d'un droit d'accès, de rectification et de suppression de vos données.
+        Pour l'exercer, contactez-nous à
+        <a href="mailto:contact@TODO.fr">contact@TODO.fr</a>.
+      </p>
+      <p>Pour plus de détails, consultez notre <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
+    </section>
+
+    <section>
+      <h2>Litiges</h2>
+      <p>
+        Le présent site est soumis au droit français. En cas de litige,
+        les tribunaux français seront seuls compétents.
+      </p>
+    </section>
+  </main>
+  <Footer/>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/variables' as variables;
+
+  .legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: variables.$spacing-xl variables.$spacing-md;
+
+    h1 {
+      font-size: variables.$font-size-2xl;
+      margin-bottom: variables.$spacing-lg;
+    }
+
+    section {
+      margin-bottom: variables.$spacing-lg;
+
+      h2 {
+        font-size: variables.$font-size-lg;
+        color: variables.$color-gray;
+        margin-bottom: variables.$spacing-xs;
+      }
+
+      p {
+        color: variables.$color-gray;
+        line-height: 1.6;
+      }
+
+      a {
+        color: variables.$color-gray;
+      }
+    }
+  }
+</style>

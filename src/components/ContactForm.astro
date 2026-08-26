@@ -1,0 +1,50 @@
+<form>
+  <h1>Prenons rendez-vous !</h1>
+  <label for="lastname">Nom :</label>
+  <input type="text" placeholder="Votre nom" required/>
+  <label for="firstname">Prénom :</label>
+  <input type="text" placeholder="Votre prénom" required/>
+  <label for="job">Fonction :</label>
+  <input type="text" placeholder="Votro fonction" required/>
+  <label for="place">Votre établissement :</label>
+  <input type="text" placeholder="Votre établissement" required/>
+  <label for="city">Votre ville :</label>
+  <input type="text" placeholder="Votre ville" required/>
+  <label for="message">Votre demande :</label>
+  <textarea name="message" id="message" rows="5" required></textarea>
+  <button type="submit" class="btn-primary">Envoyer</button>
+</form>
+
+<style lang="scss">
+    @use '../styles/_variables.scss';
+
+   form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 55 auto;
+  }
+  h1{align-self: center;}
+
+    label {
+      font-weight: 600;
+      color:variables.$color-gray-dark;
+    }
+
+    input,
+    textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid variables.$color-gray;
+      border-radius: 5px; // vérifie le nom exact dans tes variables
+      font-family: variables.$font-body;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: variables.$color-accent-yellow;
+      }
+    }
+
+</style>

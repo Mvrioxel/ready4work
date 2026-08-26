@@ -1,0 +1,116 @@
+---
+// src/components/About.astro
+const team = [
+  {
+    name: "Saida",
+    role: "Formatrice",
+    photo: "/src/assets/saida.jpg",
+    description: "Experte numérique et storytelling"
+  },
+  {
+    name: "Soufiane",
+    role: "Formateur",
+    photo: "/src/assets/soufiane2.jpeg",
+description: "Expert en gestion de projet"
+  },
+  {
+    name: "Mario",
+    role: "Formateur",
+    photo: "/src/assets/Mario_Ivanovic.jpg",
+    description: "Expert digital et IA"
+  },
+];
+---
+
+<section class="about" id="a-propos">
+  <h2>À propos de nous</h2>
+  <p class="about-intro">
+    Une équipe passionnée, engagée pour votre réussite professionnelle.
+  </p>
+
+  <div class="team-grid">
+    {team.map((member) => (
+      <div class="team-card">
+        <img
+          src={member.photo}
+          alt={`Photo de ${member.name}, ${member.role}`}
+        />
+        <h3>{member.name}</h3>
+        <p class="role">{member.role}</p>
+        <p class="bio">{member.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/variables';
+
+  .about {
+    padding: variables.$spacing-xl variables.$spacing-md;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+      font-size: variables.$font-size-2xl;
+      color: variables.$color-gray;
+      margin-bottom: variables.$spacing-sm;
+    }
+
+    .about-intro {
+      color: variables.$color-gray;
+      font-size: variables.$font-size-lg;
+      max-width: 600px;
+      margin: 0 auto variables.$spacing-lg;
+    }
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: variables.$spacing-lg;
+  }
+
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: variables.$spacing-xs;
+    padding: variables.$spacing-lg;
+    background-color: variables.$color-accent-yellow;
+    border-radius: variables.$radius-md;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: variables.$color-accent-yellow;
+      border: 2px solid variables.$color-accent-yellow;
+      margin-bottom: variables.$spacing-sm;
+    }
+
+    h3 {
+      font-size: variables.$font-size-lg;
+      color: variables.$color-gray;
+    }
+
+    .role {
+      color: variables.$color-gray;
+      font-weight: 600;
+      font-size: variables.$font-size-base;
+    }
+
+    .bio {
+      color: variables.$color-gray;
+      font-size: variables.$font-size-base;
+    }
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+// src/components/Hero.astro
+const {
+  title,
+  highlight,
+  subtitle,
+  ctaLabel = "Demander une présentation",
+  ctaHref = "#contact",
+} = Astro.props;
+---
+
+<section class="hero">
+  <h1>
+    {title}
+    {highlight && <span class="highlight">{highlight}</span>}
+  </h1>
+  <p class="subtitle">{subtitle}</p>
+  <a href={ctaHref} class="btn-primary">{ctaLabel}</a>
+</section>
+
+<style lang="scss">
+  @use '../styles/variables';
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: variables.$spacing-md;
+    padding: variables.$spacing-xl variables.$spacing-md;
+    
+
+    h1 {
+      font-size: variables.$font-size-2xl;
+      font-weight: 700;
+      line-height: 1.2;
+      color: variables.$color-gray;
+
+      .highlight {
+        color: variables.$color-primary-dark;
+      }
+    }
+
+    .subtitle {
+      font-size: variables.$font-size-lg;
+      color: variables.$color-gray;
+      max-width: 600px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: variables.$spacing-sm variables.$spacing-lg;
+      background-color: variables.$color-primary-dark;
+      color: white;
+      border-radius: variables.$radius-md;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: variables.$color-primary-dark;
+      }
+    }
+  }
+</style>

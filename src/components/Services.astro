@@ -1,0 +1,87 @@
+---
+const services = [
+  {
+    icon: "🎯",
+    title: "Coaching individuel",
+    description: "Un accompagnement personnalisé pour définir votre projet professionnel et lever vos blocages.",
+  },
+  {
+    icon: "📄",
+    title: "CV & Lettre de motivation",
+    description: "Des documents qui vous démarquent, adaptés aux attentes réelles des recruteurs.",
+  },
+  {
+    icon: "🗣️",
+    title: "Préparation à l'entretien",
+    description: "Simulations concrètes pour arriver confiant·e le jour J.",
+  },
+];
+---
+
+<section class="services" id="services">
+  <h2>Nos Services</h2>
+
+  <div class="services-grid">
+    {services.map((service) => (
+      <div class="service-card">
+        <span class="icon">{service.icon}</span>
+        <h3>{service.title}</h3>
+        <p>{service.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/variables';
+
+  .services {
+    padding: variables.$spacing-xl variables.$spacing-md;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+      text-align: center;
+      font-size: variables.$font-size-2xl;
+      color: variables.$color-gray;
+      margin-bottom: variables.$spacing-lg;
+    }
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: variables.$spacing-lg;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: variables.$spacing-sm;
+    padding: variables.$spacing-lg;
+    background-color: variables.$color-gray-lighter;
+    border-radius: variables.$radius-md;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon {
+      font-size: 2.5rem;
+    }
+
+    h3 {
+      font-size: variables.$font-size-lg;
+      color: variables.$color-gray;
+    }
+
+    p {
+      color: variables.$color-gray;
+      font-size: variables.$font-size-base;
+    }
+  }
+</style>

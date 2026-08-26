@@ -1,0 +1,119 @@
+---
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Politique de confidentialité | Ready 4 Work">
+    <Header/>
+  <main class="legal-page">
+    <h1>Politique de confidentialité</h1>
+
+    <section>
+      <h2>Collecte des données</h2>
+      <p>
+        Nous collectons les données suivantes via le formulaire de contact :
+        nom, email, téléphone (si renseigné) et le contenu de votre message.
+        Ces données sont collectées uniquement avec votre consentement explicite
+        lors de la soumission du formulaire.
+      </p>
+    </section>
+
+    <section>
+      <h2>Utilisation des données</h2>
+      <p>
+        Les données collectées servent exclusivement à répondre à votre demande
+        de prise de rendez-vous ou d'information. Elles ne sont ni revendues,
+        ni partagées avec des tiers à des fins commerciales.
+      </p>
+    </section>
+
+    <section>
+      <h2>Durée de conservation</h2>
+      <p>
+        Vos données sont conservées pendant une durée maximale de TODO (ex: 3 ans)
+        à compter de notre dernier contact, sauf demande de suppression anticipée.
+      </p>
+    </section>
+
+    <section>
+      <h2>Vos droits (RGPD)</h2>
+      <p>
+        Conformément au Règlement Général sur la Protection des Données (RGPD),
+        vous disposez des droits suivants concernant vos données personnelles :
+      </p>
+      <ul>
+        <li>Droit d'accès</li>
+        <li>Droit de rectification</li>
+        <li>Droit à l'effacement ("droit à l'oubli")</li>
+        <li>Droit d'opposition</li>
+        <li>Droit à la portabilité</li>
+      </ul>
+      <p>
+        Pour exercer ces droits, contactez-nous à
+        <a href="mailto:contact@TODO.fr">contact@TODO.fr</a>.
+        Vous pouvez également introduire une réclamation auprès de la CNIL
+        (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>).
+      </p>
+    </section>
+
+    <section>
+      <h2>Cookies</h2>
+      <p>
+        TODO : si tu utilises Google Analytics, Plausible, ou tout autre outil de
+        tracking, précise ici quels cookies sont déposés et propose un bandeau
+        de consentement (obligatoire si cookies non-essentiels).
+        Si ton site n'utilise aucun cookie de tracking, indique-le clairement ici.
+      </p>
+    </section>
+
+    <section>
+      <h2>Sécurité</h2>
+      <p>
+        Nous mettons en œuvre les mesures techniques et organisationnelles
+        nécessaires pour garantir la sécurité de vos données personnelles
+        et empêcher tout accès non autorisé.
+      </p>
+    </section>
+  </main>
+  <Footer/>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/variables' as variables;
+
+  .legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: variables.$spacing-xl variables.$spacing-md;
+
+    h1 {
+      font-size: variables.$font-size-2xl;
+      margin-bottom: variables.$spacing-lg;
+    }
+
+    section {
+      margin-bottom: variables.$spacing-lg;
+
+      h2 {
+        font-size: variables.$font-size-lg;
+        color: variables.$color-gray;
+        margin-bottom: variables.$spacing-xs;
+      }
+
+      p, li {
+        color: variables.$color-gray;
+        line-height: 1.6;
+      }
+
+      ul {
+        padding-left: variables.$spacing-lg;
+        margin-bottom: variables.$spacing-sm;
+      }
+
+      a {
+        color: variables.$color-gray;
+      }
+    }
+  }
+</style>

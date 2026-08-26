@@ -1,0 +1,101 @@
+---
+
+import  { Image } from 'astro:assets';
+import logo from '../assets/logo-r4w.png';
+
+const navLinks = [
+  { label: "Accueil", href: "#accueil" },
+  { label: "Services", href: "#services" },
+  { label: "À propos", href: "#a-propos" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<header class="header">
+  <nav class="nav">
+    <a href="/" class="logo">
+      <Image src={logo} alt="Ready 4 Work" width={180} height={100} />
+    </a>
+
+    <ul class="nav-links">
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href}>{link.label}</a>
+        </li>
+      ))}
+    </ul>
+
+    <button class="btn-cta" type="button">
+      Prendre RDV
+    </button>
+  </nav>
+</header>
+
+<style lang="scss">
+  @use '../styles/variables';
+
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 2px 5px variables.$color-gray-light;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: variables.$spacing-sm variables.$spacing-md;
+
+    .logo {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: variables.$spacing-lg;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      a {
+        color: variables.$color-gray-dark;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: variables.$color-primary-dark;
+          text-decoration: underline variables.$color-accent-cyan 2px;
+        }
+      }
+    }
+
+    .btn-cta {
+      padding: variables.$spacing-xs variables.$spacing-md;
+      background-color: variables.$color-primary-dark;
+      color: white;
+      border: none;
+      border-radius: variables.$radius-md;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: variables.$color-primary-dark;
+      }
+    }
+
+    // Mobile : on planque les liens (menu burger à faire plus tard si besoin)
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  }
+</style>
