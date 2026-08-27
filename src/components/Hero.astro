@@ -25,14 +25,14 @@ const {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: left;
     gap: variables.$spacing-md;
-    padding: variables.$spacing-xl variables.$spacing-md;
+    padding: variables.$spacing-2xl variables.$spacing-md;
     
 
     h1 {
-      font-size: variables.$font-size-2xl;
-      font-weight: 700;
+      font-size: variables.$font-size-4xl;
+      font-weight: 900;
       line-height: 1.2;
       color: variables.$color-gray;
 
@@ -42,15 +42,16 @@ const {
     }
 
     .subtitle {
-      font-size: variables.$font-size-lg;
-      color: variables.$color-gray;
+      font-size: variables.$font-size-xl;
+      color: variables.$color-gray-dark;
       max-width: 600px;
+      text-align: left;
     }
 
     .btn-primary {
       display: inline-block;
       padding: variables.$spacing-sm variables.$spacing-lg;
-      background-color: variables.$color-primary-dark;
+      background-color: variables.$btn-primary-bg;
       color: white;
       border-radius: variables.$radius-md;
       font-weight: 600;
@@ -58,7 +59,8 @@ const {
       transition: background-color 0.2s ease;
 
       &:hover {
-        background-color: variables.$color-primary-dark;
+        background-color: variables.$btn-primary-bg-hover;
+        box-shadow: variables.$shadow-md;
       }
     }
   }

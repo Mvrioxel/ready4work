@@ -37,7 +37,7 @@ description: "Expert en gestion de projet"
         />
         <h3>{member.name}</h3>
         <p class="role">{member.role}</p>
-        <p class="bio">{member.description}</p>
+        <p class="description">{member.description}</p>
       </div>
     ))}
   </div>
@@ -76,6 +76,8 @@ description: "Expert en gestion de projet"
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 500px;
     gap: variables.$spacing-xs;
     padding: variables.$spacing-lg;
     background-color: variables.$color-accent-yellow;
@@ -84,7 +86,7 @@ description: "Expert en gestion de projet"
 
     &:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.199);
     }
 
     img {
@@ -94,23 +96,25 @@ description: "Expert en gestion de projet"
       object-fit: cover;
       background-color: variables.$color-accent-yellow;
       border: 2px solid variables.$color-accent-yellow;
-      margin-bottom: variables.$spacing-sm;
+      margin-bottom: variables.$spacing-xl;
     }
 
     h3 {
-      font-size: variables.$font-size-lg;
+      font-size: variables.$font-size-2xl;
       color: variables.$color-gray;
+      font-family: variables.$font-heading;
     }
 
     .role {
       color: variables.$color-gray;
+      font-family: variables.$font-body;
       font-weight: 600;
-      font-size: variables.$font-size-base;
+      font-size: variables.$font-size-xl;
     }
 
-    .bio {
+    .description {
       color: variables.$color-gray;
-      font-size: variables.$font-size-base;
+      font-size: variables.$font-size-lg;
     }
   }
 </style>
