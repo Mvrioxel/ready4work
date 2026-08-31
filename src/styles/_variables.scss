@@ -1,3 +1,4 @@
+@use "sass:color"; 
 // Couleurs principales
 $color-primary-dark: #1B2A4A;      // Bleu marine — fond, titres
 $color-accent-yellow: #F2B705;     // Jaune/Or — CTA principal, accent phare
@@ -70,7 +71,7 @@ $container-padding: 1.5rem;
 
 // Boutons
 $btn-primary-bg: $color-accent-yellow;
-$btn-primary-bg-hover: darken($color-accent-yellow, 8%);
+$btn-primary-bg-hover: color.adjust($color-accent-yellow, $lightness: -8%);
 $btn-primary-text: $color-primary-dark;
 
 $btn-secondary-bg: transparent;
@@ -81,7 +82,7 @@ $btn-secondary-border: $color-primary-dark;
 
 // Optionnel
 $btn-accent-bg: $color-accent-pink;
-$btn-accent-bg-hover: darken($color-accent-pink, 8%);
+$btn-accent-bg-hover: color.adjust($color-accent-pink, $lightness: -8%);
 $btn-accent-text: $color-white;
 
 // Dimensions boutons
