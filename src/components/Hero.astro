@@ -9,25 +9,31 @@ const {
 } = Astro.props;
 ---
 
-<section class="hero">
+<section class="hero-left">
   <h1>
-    {title}
     {highlight && <span class="highlight">{highlight}</span>}
+    {title}
   </h1>
   <p class="subtitle">{subtitle}</p>
-  <a href={ctaHref} class="btn-primary">{ctaLabel}</a>
+  <div class="row-cta">
+    <a href={ctaHref} class="btn-primary">{ctaLabel}
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+  <a href="" class="btn-secondary">Le programme</a>
+  </div>
+  
 </section>
 
 <style lang="scss">
   @use '../styles/variables';
 
-  .hero {
+  .hero-left {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     text-align: left;
     gap: variables.$spacing-md;
-    padding: variables.$spacing-2xl variables.$spacing-md;
+    padding: variables.$spacing-2xl variables.$spacing-4xl;
     
 
     h1 {
@@ -35,6 +41,8 @@ const {
       font-weight: 900;
       line-height: 1.2;
       color: variables.$color-gray;
+            max-width: 40%;
+
 
       .highlight {
         color: variables.$color-primary-dark;
@@ -44,22 +52,55 @@ const {
     .subtitle {
       font-size: variables.$font-size-xl;
       color: variables.$color-gray-dark;
-      max-width: 600px;
+      max-width: 40%;
       text-align: left;
     }
 
+    .row-cta{
+      width: 40%;
+      display: flex;
+      align-items: center;
+      gap: variables.$spacing-sm;
+    }
+
     .btn-primary {
-      display: inline-block;
-      padding: variables.$spacing-sm variables.$spacing-lg;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: variables.$spacing-sm variables.$spacing-xs;
       background-color: variables.$btn-primary-bg;
       color: white;
       border-radius: variables.$radius-md;
-      font-weight: 600;
+      font-weight: 900;
+      font-size: variables.$font-size-md;
       text-decoration: none;
       transition: background-color 0.2s ease;
+      width: 300px;
+
+      svg{
+        display: flex;
+      }
 
       &:hover {
         background-color: variables.$btn-primary-bg-hover;
+        box-shadow: variables.$shadow-md;
+      }
+      &:hover svg{
+        transform:translateX(3px)
+      }
+    }
+    
+    .btn-secondary {
+      padding: variables.$spacing-sm variables.$spacing-lg;
+      border-radius: variables.$radius-md;
+      font-size: variables.$font-size-md;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+      width: 200px;
+
+      &:hover {
+        background-color: variables.$btn-secondary-bg-hover;
         box-shadow: variables.$shadow-md;
       }
     }
