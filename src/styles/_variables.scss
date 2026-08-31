@@ -1,7 +1,8 @@
 @use "sass:color"; 
 // Couleurs principales
 $color-primary-dark: #1B2A4A;      // Bleu marine — fond, titres
-$color-accent-yellow: #F2B705;     // Jaune/Or — CTA principal, accent phare
+$color-accent-yellow: #F2B705; 
+$color-accent-yellow-2: #f2b605f2;    // Jaune/Or — CTA principal, accent phare
 $color-accent-pink: #E91E8C;       // Rose/Magenta — accents secondaires
 $color-accent-cyan: #00BCD4;       // Turquoise — petits détails déco
 
@@ -42,6 +43,7 @@ $spacing-lg: 2rem;
 $spacing-xl: 3rem;
 $spacing-2xl: 4rem;
 $spacing-3xl: 6rem;
+$spacing-4xl: 8rem;
 
 // Bordures & Radius
 $radius-sm: 4px;
@@ -59,6 +61,7 @@ $breakpoint-wide: 1280px;
 $shadow-sm: 0 1px 3px rgba($color-black, 0.1);
 $shadow-md: 0 4px 6px rgba($color-black, 0.1);
 $shadow-lg: 0 10px 20px rgba($color-black, 0.15);
+$shadow-yellow: 0 10px 20px rgba($color-accent-yellow-2, 0.4);
 
 // Transitions
 $transition-fast: 0.2s ease;
@@ -71,7 +74,7 @@ $container-padding: 1.5rem;
 
 // Boutons
 $btn-primary-bg: $color-accent-yellow;
-$btn-primary-bg-hover: color.adjust($color-accent-yellow, $lightness: -8%);
+$btn-primary-bg-hover: color.adjust($color-accent-yellow-2, $lightness: -2%);
 $btn-primary-text: $color-primary-dark;
 
 $btn-secondary-bg: transparent;
