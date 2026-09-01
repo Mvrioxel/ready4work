@@ -65,6 +65,18 @@ const team = [
       margin-bottom: variables.$spacing-3xl;
       margin-inline: auto;
       text-align: center;
+
+      &::before{
+        content: "A propos";
+        text-transform: uppercase;
+        position: absolute;
+        top: 90%;
+        left: 20%;
+        font-size: clamp(4rem, 15vw, 12rem);
+        color: variables.$color-gray-lighter;
+        z-index: -1;
+
+      }
     .about-title{
   display: inline-flex;
   align-items: center;
