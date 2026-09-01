@@ -5,34 +5,49 @@ const team = [
     name: "Saida",
     role: "Formatrice",
     photo: "/images/saida.jpg",
-    description: "Experte numérique et storytelling"
+    description: "Experte numérique et storytelling. Elle aide chacun à raconter son parcours pour qu'il devienne un atout.",
+    tags: ["Numérique ", "Storytelling ", "Coaching "]
   },
   {
     name: "Mario",
     role: "Formateur",
     photo: "/images/Mario_Ivanovic.jpg",
-    description: "Expert digital et IA"
+    description: "Expert digital et IA. Il outille les candidats pour chercher, postuler et suivre leurs démarches efficacement.",
+    tags: ["Digital ", "IA ", "Recherche d'emploi ", "Bureautique"]
   },
 ];
 ---
 
 <section class="about" id="a-propos">
-  <h2>À propos de nous</h2>
+  <div class="header-section">
+  <span class="about-title">À propos</span>
+  <h2>L'équipe qui anime la semaine</h2>
   <p class="about-intro">
-    Une équipe passionnée, engagée pour votre réussite professionnelle.
+    Une équipe passionnée, engagée pour la réussite professionnelle de vos publics.
   </p>
+</div>
 
   <div class="team-grid">
     {team.map((member) => (
-      <div class="team-card">
+      <article class="team-members">
+      <div class="team-picture">
         <img
           src={member.photo}
           alt={`Photo de ${member.name}, ${member.role}`}
         />
+         </div>
+         <div class="team-infos">
+          <span class="role">{member.role}</span>
         <h3>{member.name}</h3>
-        <p class="role">{member.role}</p>
         <p class="description">{member.description}</p>
+         <div class="team-tags">
+        {member.tags.map((tag) =>(
+             <span>
+            {tag}
+          </span>         
+        ))}</div>
       </div>
+      </article>
     ))}
   </div>
 </section>
@@ -44,12 +59,42 @@ const team = [
     padding: variables.$spacing-xl variables.$spacing-md;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
 
+    .header-section{
+      max-width: 680px;
+      margin-bottom: variables.$spacing-3xl;
+      margin-inline: auto;
+      text-align: center;
+    .about-title{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: variables.$font-size-sm;
+  font-weight: 800;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  color: variables.$color-primary-dark;
+  background: variables.$color-white;
+  border: 1px solid variables.$color-gray-light;
+  padding: variables.$spacing-xs variables.$spacing-md;
+  margin: variables.$spacing-lg;
+  border-radius: variables.$radius-full;
+  box-shadow: variables.$shadow-lg;
+    }
+
+    .about-title::before{
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: variables.$radius-full;
+      background: variables.$color-accent-yellow;
+      box-shadow:0 0 0 4px variables.$color-accent-yellow-3;
+    }
     h2 {
       font-size: variables.$font-size-2xl;
       color: variables.$color-gray;
       margin-bottom: variables.$spacing-sm;
+      text-align: center;
     }
 
     .about-intro {
@@ -58,57 +103,108 @@ const team = [
       max-width: 600px;
       margin: 0 auto variables.$spacing-lg;
     }
+    }
+
   }
 
   .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: variables.$spacing-lg;
+    margin-inline: auto;
   }
 
-  .team-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 500px;
-    gap: variables.$spacing-xs;
-    padding: variables.$spacing-lg;
-    background-color: variables.$color-accent-yellow;
+  .team-members{
+    position: relative;
     border-radius: variables.$radius-md;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    background-color: variables.$color-primary-dark;
+    box-shadow: variables.$shadow-lg;
+    transition: transform .4s variables.$transition-base;
+  }
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.199);
-    }
+  .team-members:hover{
+transform: translateY(-8px);
+box-shadow: variables.$shadow-xl;
+  }
 
-    img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      background-color: variables.$color-accent-yellow;
-      border: 2px solid variables.$color-accent-yellow;
-      margin-bottom: variables.$spacing-xl;
-    }
+ .team-members .team-picture {
+position: relative;
+aspect-ratio: 4/5;
+overflow: hidden;
+background: variables.$color-primary-light;
+ }
 
-    h3 {
+ .team-members .team-picture img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transition: transform .7s variables.$transition-base;
+  filter: saturate(1.02);
+ }
+ .team-members:hover .team-picture img{transform:scale(1.02)}
+  
+ .team-members .team-picture::after{
+content: "";
+position: absolute;
+inset: 0; 
+ background:linear-gradient(to top,#12213ff2 0%,#12213f8c 32%,#12213f00 62%)
+}
+
+.team-members .team-infos{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: variables.$spacing-lg;
+  z-index: 2;
+}
+
+
+
+.team-members .team-infos h3 {
       font-size: variables.$font-size-2xl;
-      color: variables.$color-gray;
+      color: variables.$color-white;
       font-family: variables.$font-heading;
+      font-style: italic;
+      margin-bottom: variables.$spacing-xs;
     }
 
-    .role {
-      color: variables.$color-gray;
+    .team-members .role {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: .15rem;
+      text-transform: uppercase;
+      background: variables.$color-accent-yellow;
+      color: variables.$color-primary-dark;
       font-family: variables.$font-body;
       font-weight: 600;
-      font-size: variables.$font-size-xl;
+      font-size: variables.$font-size-md;
+      padding: variables.$spacing-xs;
+      border-radius: variables.$radius-lg;
+      margin-bottom: variables.$spacing-md;
     }
 
-    .description {
-      color: variables.$color-gray;
-      font-size: variables.$font-size-lg;
+   .team-members .description {
+      color: variables.$color-gray-lighter;
+      font-size: variables.$font-size-sm;
+      line-height: 1.9;
     }
-  }
+
+    .team-members .team-tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: variables.$spacing-md;
+      margin-top: variables.$spacing-md;
+    }
+
+    .team-members .team-tags span{
+      background-color: variables.$color-gray-dark;
+      color: variables.$color-white;
+      border: 1px solid #ffffff2e;
+      padding: variables.$spacing-xs variables.$spacing-sm;
+      border-radius: variables.$radius-full;
+    }
 </style>

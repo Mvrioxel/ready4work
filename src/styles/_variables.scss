@@ -1,8 +1,10 @@
 @use "sass:color"; 
 // Couleurs principales
-$color-primary-dark: #1B2A4A;      // Bleu marine — fond, titres
+$color-primary-dark: #1B2A4A;
+$color-primary-light:#2C3E63;      // Bleu marine — fond, titres
 $color-accent-yellow: #F2B705; 
 $color-accent-yellow-2: #f2b605f2;    // Jaune/Or — CTA principal, accent phare
+$color-accent-yellow-3:#f2b70533;
 $color-accent-pink: #E91E8C;       // Rose/Magenta — accents secondaires
 $color-accent-cyan: #00BCD4;       // Turquoise — petits détails déco
 
@@ -36,6 +38,7 @@ $font-size-3xl: 2.5rem;
 $font-size-4xl: 3rem;
 
 // Espacements
+$spacing-xxs:0.2rem;
 $spacing-xs: 0.5rem;
 $spacing-sm: 1rem;
 $spacing-md: 1.5rem;
@@ -61,6 +64,7 @@ $breakpoint-wide: 1280px;
 $shadow-sm: 0 1px 3px rgba($color-black, 0.1);
 $shadow-md: 0 4px 6px rgba($color-black, 0.1);
 $shadow-lg: 0 10px 20px rgba($color-black, 0.15);
+$shadow-xl:0 32px 64px rgba($color-black,0.28);
 $shadow-yellow: 0 10px 20px rgba($color-accent-yellow-2, 0.4);
 
 // Transitions
